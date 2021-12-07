@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>weather App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="src/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ceviche+One&family=Oswald:wght@200;300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card mt-5">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-8">
+            <form id="search-form">
+              <input type="text" placeholder="Search" class="form-control" id="search-bar" autofocus />
+          </div>
+          <div class="col-2">
+            <input type="button" value="🔍" class="btn btn-light" />
+          </div>
+
+
+          </form>
+          <div class="col-2">
+            <input type="button" value="Current" class="btn btn-primary" id="current-btn" />
+          </div>
+        </div>
+        <div class="row m-3 information">
+          <div class="col-4 weather-info">
+            <ul>
+              <li id="city-name">Damascus</li>
+              <li id="day-and-time">Sunday 17:00</li>
+              <li id="description">Cold</li>
+            </ul>
+
+          </div>
+          <div class="col-4 weather-info">
+            🌥 <br />
+            <span class="temp">7</span>
+            <a class="temp-symbol">°C </a>
+            <span class="brder-symbol"> |</span>
+            <a class="Fehrnhit-symbol"> °F </a>
+
+          </div>
+          <div class="col-4 weather-info">
+
+            <ul>
+              <li id="pressure">Pressure: 10%</li>
+              <li id="humidity">Humidity: 97%</li>
+              <li id="wind">Wind: 5 km/h</li>
+            </ul>
+
+          </div>
+        </div>
+
+
+        <div class="row futur-days">
+          <div class="col-sm-2">
+            <div class="card">
+              <div class="card-body weather-info cards">
+                🌥 <br />
+                <p>
+                  Tue <br />
+                  7°C
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="card">
+              <div class="card-body weather-info cards">
+                🌥 <br />
+                <p>
+                  Wed <br />
+                  7°C
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="card">
+              <div class="card-body weather-info cards">
+                🌥 <br />
+                <p>
+                  Thu <br />
+                  7°C
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="card">
+              <div class="card-body weather-info cards">
+                🌥 <br />
+                <p>
+                  Fri <br />
+                  7°C
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="card">
+              <div class="card-body weather-info cards">
+                🌥 <br />
+                <p>
+                  Sat <br />
+                  7°C
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="card">
+              <div class="card-body weather-info cards">
+                🌥 <br />
+                <p>
+                  Mon <br />
+                  7°C
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <script src="src/index.js"></script>
+</body>
+
+</html>

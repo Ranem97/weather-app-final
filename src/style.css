@@ -1,0 +1,53 @@
+p,
+li {
+  font-size: 20px;
+  font-family: "Oswald", sans-serif;
+}
+h1,
+h2 {
+  display: inline;
+}
+ul {
+  list-style: none;
+}
+
+.card {
+  background-color: #38598b;
+  border-color: #113f67;
+  color: #e7eaf6;
+}
+
+.weather-info,
+.information {
+  text-align: center;
+}
+.cards {
+  border-color: #fff;
+  background-color: #fff;
+  color: #113f67;
+  border-radius: 5px;
+}
+.futur-days {
+  align-content: center;
+}
+.temp {
+  font-size: 40px;
+  font-weight: 600;
+}
+.temp-symbol,
+.Fehrnhit-symbol,
+.brder-symbol {
+  font-size: 15px;
+  position: relative;
+  top: -17px;
+  color: #e7eaf6;
+  text-decoration: none;
+}
+.temp-symbol:hover,
+.Fehrnhit-symbol:hover {
+  color: #e7eaf6;
+}
+
+#city-name {
+  font-size: xx-large;
+}
