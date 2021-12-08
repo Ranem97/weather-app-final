@@ -51,3 +51,10 @@ ul {
 #city-name {
   font-size: xx-large;
 }
+#author {
+  display: inline-flex;
+  text-decoration: none;
+}
+#git-url {
+  text-decoration: none;
+}
