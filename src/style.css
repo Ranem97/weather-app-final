@@ -10,6 +10,9 @@ h2 {
 ul {
   list-style: none;
 }
+.container {
+  max-width: 700px;
+}
 
 .card {
   background-color: #38598b;
@@ -50,6 +53,7 @@ ul {
 
 #city-name {
   font-size: xx-large;
+  text-transform: capitalize;
 }
 #author {
   display: inline-flex;
