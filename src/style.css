@@ -34,7 +34,7 @@ ul {
   align-content: center;
 }
 .temp {
-  font-size: 40px;
+  font-size: 45px;
   font-weight: 600;
 }
 .temp-symbol,
@@ -45,6 +45,10 @@ ul {
   top: -17px;
   color: #e7eaf6;
   text-decoration: none;
+}
+.temp-symbol,
+.Fehrnhit-symbol:hover {
+  cursor: pointer;
 }
 .temp-symbol:hover,
 .Fehrnhit-symbol:hover {
@@ -61,4 +65,7 @@ ul {
 }
 #git-url {
   text-decoration: none;
+}
+#icon {
+  max-width: 50%;
 }

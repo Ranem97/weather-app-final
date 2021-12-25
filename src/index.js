@@ -14,6 +14,8 @@ let hour = now.getHours();
 let minuts = now.getMinutes();
 
 function showResult(response) {
+  console.log(response);
+  celsiusTemp = response.data.main.temp;
   let temprature = document.querySelector(".temp");
   let degree = Math.round(response.data.main.temp);
   temprature.innerHTML = degree;
@@ -29,6 +31,12 @@ function showResult(response) {
 
   let pressure = document.querySelector("#pressure");
   pressure.innerHTML = `Pressure: ${response.data.main.pressure}`;
+
+  let icon = document.querySelector("#icon");
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 function changeCity(event) {
   event.preventDefault();
@@ -58,7 +66,22 @@ function currentPosition(position) {
 function getCurrentPos(event) {
   navigator.geolocation.getCurrentPosition(currentPosition);
 }
+
+function changeTempToC(event) {
+  event.preventDefault();
+  let temprature = document.querySelector(".temp");
+  temprature.innerHTML = celsiusTemp;
+}
+
+function changeTempToF(event) {
+  event.preventDefault();
+  let temprature = document.querySelector(".temp");
+  let f = (celsiusTemp * 9) / 5 + 32;
+  temprature.innerHTML = Math.round(f);
+}
+
 //first line
+let celsiusTemp = null;
 let searchButton = document.querySelector("#search-form");
 searchButton.addEventListener("submit", changeCity);
 
@@ -68,21 +91,8 @@ dayAndTime.innerHTML = `${days[day]} ${hour}:${minuts}`;
 let currentButton = document.querySelector("#current-btn");
 currentButton.addEventListener("click", getCurrentPos);
 
-//feature 3
-// function changeTempToC(event) {
-//   event.preventDefault();
-//   let temprature = document.querySelector(".temp");
-//   temprature.innerHTML = `19`;
-// }
+let cTemp = document.querySelector(".temp-symbol");
+cTemp.addEventListener("click", changeTempToC);
 
-// function changeTempToF(event) {
-//   event.preventDefault();
-//   let temprature = document.querySelector(".temp");
-//   temprature.innerHTML = `66`;
-// }
-
-// let cTemp = document.querySelector(".temp-symbol");
-// cTemp.addEventListener("click", changeTempToC);
-
-// let fTemp = document.querySelector(".Fehrnhit-symbol");
-// fTemp.addEventListener("click", changeTempToF);
+let fTemp = document.querySelector(".Fehrnhit-symbol");
+fTemp.addEventListener("click", changeTempToF);

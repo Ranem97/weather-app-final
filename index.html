@@ -25,10 +25,11 @@
         <div class="row">
           <div class="col-8">
             <form id="search-form">
-              <input type="text" placeholder="Search" class="form-control" id="search-bar" autofocus />
+              <input type="search " placeholder="Search" class="form-control" id="search-bar" autofocus
+                autocomplete="off" />
           </div>
           <div class="col-2">
-            <input type="button" value="🔍" class="btn btn-light" />
+            <input type="submit" value="🔍" class="btn btn-light" />
           </div>
           </form>
           <div class="col-2">
@@ -38,15 +39,16 @@
         <div class="row m-3 information">
           <div class="col-4 weather-info">
             <ul>
-              <li id="city-name">Damascus</li>
-              <li id="day-and-time">Sunday 17:00</li>
-              <li id="description">Cold</li>
+              <li id="city-name"></li>
+              <li id="day-and-time"></li>
+              <li id="description"></li>
             </ul>
 
           </div>
-          <div class="col-4 weather-info">
-            🌥 <br />
-            <span class="temp">7</span>
+          <div class="col-4 weather-info clearfix">
+            <img src="" id="icon">
+            <br />
+            <span class="temp"></span>
             <a class="temp-symbol">°C </a>
             <span class="brder-symbol"> |</span>
             <a class="Fehrnhit-symbol"> °F </a>
@@ -55,9 +57,9 @@
           <div class="col-4 weather-info">
 
             <ul>
-              <li id="pressure">Pressure: 10%</li>
-              <li id="humidity">Humidity: 97%</li>
-              <li id="wind">Wind: 5 km/h</li>
+              <li id="pressure"></li>
+              <li id="humidity"></li>
+              <li id="wind"></li>
             </ul>
 
           </div>
