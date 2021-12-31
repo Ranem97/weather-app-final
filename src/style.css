@@ -19,7 +19,6 @@ ul {
   border-color: #113f67;
   color: #e7eaf6;
 }
-
 .weather-info,
 .information {
   text-align: center;
@@ -29,6 +28,7 @@ ul {
   background-color: #fff;
   color: #113f67;
   border-radius: 5px;
+  text-align: center;
 }
 .futur-days {
   align-content: center;
@@ -53,6 +53,14 @@ ul {
 .temp-symbol:hover,
 .Fehrnhit-symbol:hover {
   color: #e7eaf6;
+}
+.futur-days p,
+.futur-days #min {
+  opacity: 0.5;
+}
+
+.forcast-degree {
+  font-weight: bold;
 }
 
 #city-name {
