@@ -13,6 +13,13 @@ let day = now.getDay();
 let hour = now.getHours();
 let minuts = now.getMinutes();
 
+function getForcast(coords) {
+  console.log(coords);
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&&appid=${apiKey}&unit=metric`;
+  console.log(apiURL);
+  axios.get(apiURL).then(displayForcast);
+}
+
 function showResult(response) {
   console.log(response);
   celsiusTemp = response.data.main.temp;
@@ -37,6 +44,8 @@ function showResult(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  getForcast(response.data.coord);
 }
 function changeCity(event) {
   event.preventDefault();
@@ -44,7 +53,6 @@ function changeCity(event) {
   let newCity = document.querySelector("#search-bar");
   cityName.innerHTML = newCity.value;
 
-  let apiKey = "b0a51e422837fe6760203fb51f511416";
   let city = newCity.value;
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(url).then(showResult);
@@ -79,7 +87,8 @@ function changeTempToF(event) {
   let f = (celsiusTemp * 9) / 5 + 32;
   temprature.innerHTML = Math.round(f);
 }
-function displayForcast() {
+function displayForcast(response) {
+  console.log(response.data.daily);
   let forcast = document.querySelector("#forcast");
   let forcastHTML = `<div class="row">`;
   let days = ["Thu", "Fri", "Sat", "Sun"];
@@ -114,7 +123,6 @@ function displayForcast() {
 
 //first line
 let celsiusTemp = null;
-displayForcast();
 
 let searchButton = document.querySelector("#search-form");
 searchButton.addEventListener("submit", changeCity);
@@ -130,3 +138,4 @@ cTemp.addEventListener("click", changeTempToC);
 
 let fTemp = document.querySelector(".Fehrnhit-symbol");
 fTemp.addEventListener("click", changeTempToF);
+let apiKey = "b0a51e422837fe6760203fb51f511416";
