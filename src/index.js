@@ -135,15 +135,13 @@ function displayForcast(response) {
 
 //first line
 let celsiusTemp = null;
+getCurrentPos();
 
 let searchButton = document.querySelector("#search-form");
 searchButton.addEventListener("submit", changeCity);
 
 let dayAndTime = document.querySelector("#day-and-time");
 dayAndTime.innerHTML = `${days[day]} ${hour}:${minuts}`;
-
-let currentButton = document.querySelector("#current-btn");
-currentButton.addEventListener("click", getCurrentPos);
 
 let cTemp = document.querySelector(".temp-symbol");
 cTemp.addEventListener("click", changeTempToC);
