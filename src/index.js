@@ -13,9 +13,16 @@ let day = now.getDay();
 let hour = now.getHours();
 let minuts = now.getMinutes();
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function getForcast(coords) {
   console.log(coords);
-  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&&appid=${apiKey}&unit=metric`;
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&&appid=${apiKey}&units=metric`;
   console.log(apiURL);
   axios.get(apiURL).then(displayForcast);
 }
@@ -68,7 +75,7 @@ function currentPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let apiKey = "b0a51e422837fe6760203fb51f511416";
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(url).then(changeInfo);
 }
 function getCurrentPos(event) {
@@ -78,7 +85,7 @@ function getCurrentPos(event) {
 function changeTempToC(event) {
   event.preventDefault();
   let temprature = document.querySelector(".temp");
-  temprature.innerHTML = celsiusTemp;
+  temprature.innerHTML = Math.round(celsiusTemp);
 }
 
 function changeTempToF(event) {
@@ -88,33 +95,38 @@ function changeTempToF(event) {
   temprature.innerHTML = Math.round(f);
 }
 function displayForcast(response) {
-  console.log(response.data.daily);
+  let forcastArray = response.data.daily;
+
   let forcast = document.querySelector("#forcast");
   let forcastHTML = `<div class="row">`;
-  let days = ["Thu", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
-    forcastHTML =
-      forcastHTML +
-      `
+
+  forcastArray.forEach(function (forcastDay, index) {
+    if (index < 6) {
+      forcastHTML =
+        forcastHTML +
+        `
   <div class="col-sm-2">
     <div class="card">
       <div class="card-body weather-info cards">
-        <p>${day}</p>
+        <p>${formatDay(forcastDay.dt)}</p>
         <img
-          src="http://openweathermap.org/img/wn/04d@2x.png"
+          src="http://openweathermap.org/img/wn/${
+            forcastDay.weather[0].icon
+          }@2x.png"
           alt=""
           width="50"
         />
         <br />
 
         <div class="forcast-degree">
-          <span id="max">7°</span>
-          <span id="min"> 10°</span>
+          <span id="max">${Math.round(forcastDay.temp.max)}°</span>
+          <span id="min"> ${Math.round(forcastDay.temp.min)}°</span>
         </div>
       </div>
     </div>
   </div>
 `;
+    }
   });
 
   forcastHTML = forcastHTML + `</div>`;
