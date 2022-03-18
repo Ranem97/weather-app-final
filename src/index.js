@@ -98,14 +98,14 @@ function displayForcast(response) {
   let forcastArray = response.data.daily;
 
   let forcast = document.querySelector("#forcast");
-  let forcastHTML = `<div class="row">`;
+  let forcastHTML = `<div class="d-flex justify-content-evenly">`;
 
   forcastArray.forEach(function (forcastDay, index) {
     if (index < 6) {
       forcastHTML =
         forcastHTML +
         `
-  <div class="col-sm-2">
+  <div>
     <div class="card">
       <div class="card-body weather-info cards">
         <p>${formatDay(forcastDay.dt)}</p>

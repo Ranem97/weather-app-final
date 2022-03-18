@@ -111,4 +111,7 @@ ul {
   .forcast-degree {
     font-size: 16px;
   }
+  .futur-days .card {
+    max-width: 60px;
+  }
 }
