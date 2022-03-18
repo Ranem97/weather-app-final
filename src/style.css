@@ -1,3 +1,11 @@
+:root {
+  --Primary-color: #113f67;
+  --Secondary-color: radial-gradient(
+    circle at 10% 20%,
+    #113f67,
+    rgb(7, 91, 173) 90%
+  );
+}
 p,
 li {
   font-size: 1.5rem;
@@ -10,13 +18,10 @@ h2 {
 ul {
   list-style: none;
 }
-.container {
-  max-width: 700px;
-}
 
 .card {
-  background-color: #38598b;
-  border-color: #113f67;
+  background: var(--Secondary-color);
+  border-color: var(--Primary-color);
   color: #e7eaf6;
 }
 .weather-info,
@@ -76,4 +81,34 @@ ul {
 }
 #icon {
   max-width: 50%;
+}
+
+@media (max-width: 900px) {
+  #city-name {
+    font-size: 20px;
+  }
+  #day-and-time {
+    font-size: 18px;
+  }
+  #description {
+    font-size: 18px;
+  }
+  #pressure {
+    font-size: 18px;
+  }
+  #humidity {
+    font-size: 18px;
+  }
+  #wind {
+    font-size: 18px;
+  }
+  .card-body p {
+    font-size: 16px;
+  }
+  .card-body img {
+    padding-right: 20px;
+  }
+  .forcast-degree {
+    font-size: 16px;
+  }
 }
